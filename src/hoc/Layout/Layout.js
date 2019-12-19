@@ -6,7 +6,7 @@ import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-const layout = props => {
+const layout = React.memo(props => {
     const [showSideDrawer, setShowSideDrawer] = useState(false);
 
     const sideDrawerClosedHandler = () => {
@@ -31,7 +31,7 @@ const layout = props => {
                 </main>
             </Aux>
         )
-}
+});
 
 const mapStateToPropst = state => {
     return {

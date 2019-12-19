@@ -7,10 +7,12 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
-const orders = React.memo(props => {
+const orders =React.memo(props => {
+    const {onFetchOrders,token, userId} = props;
+ 
     useEffect(() =>  {
-        props.onFetchOrders(props.token, props.userId);
-    }, [props]);
+        onFetchOrders(token, userId);
+    }, [onFetchOrders, token, userId]);
 
         let orders = <Spinner />;
         if ( !props.loading ) {
